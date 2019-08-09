@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  TwitterApp
+
+  Created by Shagun Madhikarmi on 01/10/2014.
+  Copyright (c) 2014 madhikarma. All rights reserved.
+*/
+
+"OK" = "Ok";
+"ERROR_LOAD_TWEETS" = "Could not load tweets";
