@@ -2,25 +2,29 @@
 //  ContentView.swift
 //  SwiftUIDemo
 //
-//  Created by Shagun Madhikarmi on 06/07/2019.
-//  Copyright © 2019 madhikarma. All rights reserved.
+//  Created by Shagun Madhikarmi on 01/10/2019.
+//  Copyright © 2019 Shagun Madhikarmi. All rights reserved.
 //
 
 import SwiftUI
 
-struct ContentView : View {
+struct ContentView: View {
     var body: some View {
-        VStack(alignment: HorizontalAlignment.center, spacing: 2) {
-            Text("Hello World")
-            Text("Hello World")
-        }
+        VStack(alignment: .center, spacing: 10) {
+            Group {
+                Text("Hello").foregroundColor(Color.blue)
+                Text("World").foregroundColor(Color.yellow)
+            }.background(Color.red)
+            Group {
+                Text("Hello").foregroundColor(Color.blue)
+                Text("World").foregroundColor(Color.yellow)
+            }.background(Color.green)
+        }.background(Color.orange)
     }
 }
 
-#if DEBUG
-struct ContentView_Previews : PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-#endif
