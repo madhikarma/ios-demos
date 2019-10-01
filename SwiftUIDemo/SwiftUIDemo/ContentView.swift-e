@@ -8,17 +8,22 @@
 
 import SwiftUI
 
+struct Message: Hashable {
+    let value: String
+}
+
 struct ContentView: View {
+    
+    let items: [Message] = [Message(value: "Hello"),
+                            Message(value: "World")]
+
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             Group {
-                Text("Hello").foregroundColor(Color.blue)
-                Text("World").foregroundColor(Color.yellow)
+                ForEach(items, id: \.value) { item in
+                    Text(item.value).foregroundColor(Color.blue)
+                }
             }.background(Color.red)
-            Group {
-                Text("Hello").foregroundColor(Color.blue)
-                Text("World").foregroundColor(Color.yellow)
-            }.background(Color.green)
         }.background(Color.orange)
     }
 }
@@ -28,3 +33,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+ 
+
