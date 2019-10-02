@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA5441A4234364E100CF0C91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5441A3234364E100CF0C91 /* AppDelegate.swift */; };
-		AA5441A6234364E100CF0C91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5441A5234364E100CF0C91 /* SceneDelegate.swift */; };
+		AA064D3D234468490048C788 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA064D3B234468490048C788 /* SceneDelegate.swift */; };
+		AA1C05592344692800080D33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C05582344692800080D33 /* AppDelegate.swift */; };
 		AA5441A8234364E100CF0C91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5441A7234364E100CF0C91 /* ContentView.swift */; };
 		AA5441AA234364E200CF0C91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA5441A9234364E200CF0C91 /* Assets.xcassets */; };
 		AA5441AD234364E200CF0C91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA5441AC234364E200CF0C91 /* Preview Assets.xcassets */; };
@@ -41,13 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA064D3B234468490048C788 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AA1C05582344692800080D33 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA1C055A2344696D00080D33 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA5441A0234364E100CF0C91 /* SwiftUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA5441A3234364E100CF0C91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../Support/AppDelegate.swift; sourceTree = "<group>"; };
-		AA5441A5234364E100CF0C91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../Support/SceneDelegate.swift; sourceTree = "<group>"; };
 		AA5441A7234364E100CF0C91 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AA5441A9234364E200CF0C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA5441AC234364E200CF0C91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AA5441B1234364E200CF0C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA5441B6234364E300CF0C91 /* SwiftUIDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA5441BA234364E300CF0C91 /* SwiftUIDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIDemoTests.swift; sourceTree = "<group>"; };
 		AA5441BC234364E300CF0C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -185,8 +185,8 @@
 		AA7E30C9234465FA007BBEA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA1C055A2344696D00080D33 /* Info.plist */,
 				AA5441A9234364E200CF0C91 /* Assets.xcassets */,
-				AA5441B1234364E200CF0C91 /* Info.plist */,
 				AA5441AB234364E200CF0C91 /* Preview Content */,
 				AA7E30CD23446705007BBEA3 /* Launch Screen.storyboard */,
 			);
@@ -204,8 +204,8 @@
 		AA7E30CB23446611007BBEA3 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				AA5441A3234364E100CF0C91 /* AppDelegate.swift */,
-				AA5441A5234364E100CF0C91 /* SceneDelegate.swift */,
+				AA064D3B234468490048C788 /* SceneDelegate.swift */,
+				AA1C05582344692800080D33 /* AppDelegate.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -342,11 +342,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA7E30BF23446543007BBEA3 /* Person.swift in Sources */,
-				AA5441A4234364E100CF0C91 /* AppDelegate.swift in Sources */,
 				AA7E30C7234465B0007BBEA3 /* GitHubSearchResultStore.swift in Sources */,
 				AA7E30B923446287007BBEA3 /* GitHubSearchResponse.swift in Sources */,
+				AA1C05592344692800080D33 /* AppDelegate.swift in Sources */,
+				AA064D3D234468490048C788 /* SceneDelegate.swift in Sources */,
 				AA7E30BB234462B1007BBEA3 /* GitHubSearchResult.swift in Sources */,
-				AA5441A6234364E100CF0C91 /* SceneDelegate.swift in Sources */,
 				AA7E30C423446569007BBEA3 /* Message.swift in Sources */,
 				AA7E30C123446550007BBEA3 /* PersonStore.swift in Sources */,
 				AA5441A8234364E100CF0C91 /* ContentView.swift in Sources */,
@@ -504,9 +504,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIDemo/Support/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIDemo/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SwiftUIDemo/Support/Info.plist;
+				INFOPLIST_FILE = SwiftUIDemo/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -523,9 +523,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIDemo/Support/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIDemo/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SwiftUIDemo/Support/Info.plist;
+				INFOPLIST_FILE = SwiftUIDemo/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
