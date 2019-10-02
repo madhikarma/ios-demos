@@ -11,18 +11,15 @@ import Combine
 
 struct ContentView: View {
     
-    @ObservedObject var store: PersonStore
-
-    let items: [Message] = [Message(value: "Hello"),
-                            Message(value: "World")]
+    @ObservedObject var store: GitHubSearchResultStore
 
     var body: some View {
         NavigationView {
-            List(store.persons) { person in
+            List(store.results) { result in
                 VStack(alignment: .leading) {
-                    Text(person.name)
+                    Text(result.full_name)
                         .font(.headline)
-                    Text("Age: \(person.age)")
+                    Text("Description: \(result.description)")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -31,13 +28,13 @@ struct ContentView: View {
         .onAppear(perform: {
             self.store.fetchWithCompletion(nil)
         })
-        .navigationBarTitle(Text("Persons"))
+        .navigationBarTitle(Text("Repositories"))
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(store: PersonStore())
+        ContentView(store: GitHubSearchResultStore())
     }
 }
  
