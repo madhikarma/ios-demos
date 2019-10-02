@@ -16,19 +16,21 @@ struct GithubSearchResultsView: View {
     var body: some View {
         NavigationView {
             List(store.results) { result in
-                VStack(alignment: .leading) {
-                    Text(result.full_name)
-                        .font(.headline)
-                    Text("Description: \(result.description)")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                NavigationLink(destination: GithubSearchResultsView(store: self.store)) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text(result.full_name)
+                            .font(.headline)
+                        Text(result.description)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
                 }
-            }
+            }.navigationBarTitle(Text("Repositories"), displayMode: .inline)
         }
         .onAppear(perform: {
             self.store.fetchWithCompletion(nil)
         })
-        .navigationBarTitle(Text("Repositories"))
+        
     }
 }
 
