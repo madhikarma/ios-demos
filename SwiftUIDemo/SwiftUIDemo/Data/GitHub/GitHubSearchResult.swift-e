@@ -7,7 +7,7 @@
 //
 
 import Foundation
-    
+
 struct GitHubSearchResult: Identifiable, Codable {
     let id: Int
     let full_name: String
