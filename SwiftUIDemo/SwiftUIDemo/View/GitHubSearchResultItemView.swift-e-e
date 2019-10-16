@@ -13,7 +13,6 @@ struct GitHubSearchResultItemView: View {
     @State var result: GitHubSearchResult
     
     var body: some View {
-
             Text(result.full_name)
                 .navigationBarTitle("Repository detail")
     }
