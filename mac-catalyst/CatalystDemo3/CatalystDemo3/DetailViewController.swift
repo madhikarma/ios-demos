@@ -62,8 +62,7 @@ class DetailViewController: UIViewController {
     
     // MARK: - Actions
     
-    @objc
-    func hovering(_ recognizer: UIHoverGestureRecognizer) {
+    @objc private func hovering(_ recognizer: UIHoverGestureRecognizer) {
         switch recognizer.state {
         case .began, .changed:
             red.backgroundColor = .green
@@ -74,8 +73,7 @@ class DetailViewController: UIViewController {
         }
     }
 
-    @objc
-    func panning(_ sender: UIPanGestureRecognizer) {
+    @objc private func panning(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: self.view)
         sender.view!.center = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
         sender.setTranslation(.zero, in: self.view)
