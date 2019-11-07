@@ -16,6 +16,8 @@
 		CDF00BE62373B240006620AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDF00BE42373B240006620AF /* LaunchScreen.storyboard */; };
 		CDF00BF12373B240006620AF /* CatalystDemo3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF00BF02373B240006620AF /* CatalystDemo3Tests.swift */; };
 		CDF00BFC2373B240006620AF /* CatalystDemo3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF00BFB2373B240006620AF /* CatalystDemo3UITests.swift */; };
+		CDF00C0B2373CE6E006620AF /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF00C0A2373CE6E006620AF /* Dog.swift */; };
+		CDF00C0D2373CFF5006620AF /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF00C0C2373CFF5006620AF /* Breed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		CDF00BFB2373B240006620AF /* CatalystDemo3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystDemo3UITests.swift; sourceTree = "<group>"; };
 		CDF00BFD2373B240006620AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDF00C092373B2E7006620AF /* CatalystDemo3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatalystDemo3.entitlements; sourceTree = "<group>"; };
+		CDF00C0A2373CE6E006620AF /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		CDF00C0C2373CFF5006620AF /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				CDF00BE22373B240006620AF /* Assets.xcassets */,
 				CDF00BE42373B240006620AF /* LaunchScreen.storyboard */,
 				CDF00BE72373B240006620AF /* Info.plist */,
+				CDF00C0A2373CE6E006620AF /* Dog.swift */,
+				CDF00C0C2373CFF5006620AF /* Breed.swift */,
 			);
 			path = CatalystDemo3;
 			sourceTree = "<group>";
@@ -264,9 +270,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF00C0D2373CFF5006620AF /* Breed.swift in Sources */,
 				CDF00BD82373B23F006620AF /* AppDelegate.swift in Sources */,
 				CDF00BDA2373B23F006620AF /* SceneDelegate.swift in Sources */,
 				CDF00BDC2373B23F006620AF /* MasterViewController.swift in Sources */,
+				CDF00C0B2373CE6E006620AF /* Dog.swift in Sources */,
 				CDF00BDE2373B23F006620AF /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
