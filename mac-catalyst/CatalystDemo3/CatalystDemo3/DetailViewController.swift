@@ -10,31 +10,75 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    // UI
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
-    func configureView() {
-        // Update the user interface for the detail item.
-        if let detail = detailItem {
-            if let label = detailDescriptionLabel {
-                label.text = detail.description
-            }
-        }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        configureView()
-    }
-
+    private let red = UIView()
+    
+    // Model
     var detailItem: NSDate? {
         didSet {
-            // Update the view.
-            configureView()
+            updateUI()
+        }
+    }
+    
+    
+    // MARK: - View lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        updateUI()
+    }
+    
+    
+    // MARK: - User interface
+    
+    private func setupUI() {
+        red.backgroundColor = .red
+        view.addSubview(red)
+        red.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            red.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            red.topAnchor.constraint(equalTo:  detailDescriptionLabel.bottomAnchor, constant: 10),
+            red.widthAnchor.constraint(equalToConstant: 200),
+            red.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    
+        let hover = UIHoverGestureRecognizer(target: self, action: #selector(hovering(_:)))
+        red.addGestureRecognizer(hover)
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(panning(_:)))
+        red.addGestureRecognizer(pan)
+    }
+    
+    private func updateUI() {
+        guard let detail = detailItem,
+            let label = detailDescriptionLabel else {
+                return
+        }
+        label.text = detail.description
+    }
+    
+    
+    // MARK: - Actions
+    
+    @objc
+    func hovering(_ recognizer: UIHoverGestureRecognizer) {
+        switch recognizer.state {
+        case .began, .changed:
+            red.backgroundColor = .green
+        case .ended:
+            red.backgroundColor = .red
+        default:
+            break
         }
     }
 
-
+    @objc
+    func panning(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: self.view)
+        sender.view!.center = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
+        sender.setTranslation(.zero, in: self.view)
+    }
 }
 
