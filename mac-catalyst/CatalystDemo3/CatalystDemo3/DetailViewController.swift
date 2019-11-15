@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     private let red = UIView()
     
     // Model
-    var detailItem: NSDate? {
+    var detailItem: Breed? {
         didSet {
             updateUI()
         }
@@ -56,7 +56,7 @@ class DetailViewController: UIViewController {
             let label = detailDescriptionLabel else {
                 return
         }
-        label.text = detail.description
+        label.text = detail.name
     }
     
     
