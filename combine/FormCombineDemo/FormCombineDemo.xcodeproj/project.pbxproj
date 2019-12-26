@@ -15,6 +15,7 @@
 		AA1137D823B4DB5700A61441 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1137D623B4DB5700A61441 /* LaunchScreen.storyboard */; };
 		AA1137E323B4DB5700A61441 /* FormCombineDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1137E223B4DB5700A61441 /* FormCombineDemoTests.swift */; };
 		AA1137EE23B4DB5700A61441 /* FormCombineDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1137ED23B4DB5700A61441 /* FormCombineDemoUITests.swift */; };
+		AA1137FC23B4DCA700A61441 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1137FB23B4DCA700A61441 /* FormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AA1137E923B4DB5700A61441 /* FormCombineDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormCombineDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1137ED23B4DB5700A61441 /* FormCombineDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCombineDemoUITests.swift; sourceTree = "<group>"; };
 		AA1137EF23B4DB5700A61441 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA1137FB23B4DCA700A61441 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				AA1137D423B4DB5700A61441 /* Assets.xcassets */,
 				AA1137D623B4DB5700A61441 /* LaunchScreen.storyboard */,
 				AA1137D923B4DB5700A61441 /* Info.plist */,
+				AA1137FB23B4DCA700A61441 /* FormViewController.swift */,
 			);
 			path = FormCombineDemo;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				AA1137D023B4DB5400A61441 /* ViewController.swift in Sources */,
 				AA1137CC23B4DB5400A61441 /* AppDelegate.swift in Sources */,
+				AA1137FC23B4DCA700A61441 /* FormViewController.swift in Sources */,
 				AA1137CE23B4DB5400A61441 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
