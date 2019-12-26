@@ -18,6 +18,9 @@ class FormViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var label: UILabel!
     
+    
+    // MARK: - View lifecycle
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -25,9 +28,12 @@ class FormViewController: UIViewController {
         switchSubscriber = $isSubmitAllowed.receive(on: DispatchQueue.main).assign(to: \.text!, on: label)
     }
     
+    
+    // MARK: - Actions
+    
     @IBAction func didSwitch(_ sender: UISwitch) {
         isSubmitAllowed = sender.isOn ? "on" : "off"
         print(isSubmitAllowed)
-        print(label.text)
+        print(String(describing: label.text))
     }
 }
