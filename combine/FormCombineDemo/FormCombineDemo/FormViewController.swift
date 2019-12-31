@@ -6,17 +6,23 @@
 //  Copyright © 2019 Shagun Madhikarmi. All rights reserved.
 //
 
+// https://www.avanderlee.com/swift/combine/
+
 import UIKit
 import Combine
 
+class FormViewModel {
+    @Published var isSubmitAllowed: String = "on"
+}
+
 class FormViewController: UIViewController {
-
-    @Published var isSubmitAllowed: String = "off"
+    
     private var switchSubscriber: AnyCancellable?
+    private var viewModel = FormViewModel()
 
-    @IBOutlet weak var acceptTermsSwitch: UISwitch!
-    @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet private weak var acceptTermsSwitch: UISwitch!
+    @IBOutlet private weak var submitButton: UIButton!
+    @IBOutlet private weak var label: UILabel!
     
     
     // MARK: - View lifecycle
@@ -24,16 +30,17 @@ class FormViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         // $ to access the wrapped publisher
-        switchSubscriber = $isSubmitAllowed.receive(on: DispatchQueue.main).assign(to: \.text!, on: label)
+        switchSubscriber = viewModel.$isSubmitAllowed.receive(on: DispatchQueue.main).assign(to: \.text!, on: label)
     }
     
     
     // MARK: - Actions
     
     @IBAction func didSwitch(_ sender: UISwitch) {
-        isSubmitAllowed = sender.isOn ? "on" : "off"
-        print(isSubmitAllowed)
+        viewModel.isSubmitAllowed = sender.isOn ? "on" : "off"
+        print(viewModel.isSubmitAllowed)
         print(String(describing: label.text))
     }
 }
