@@ -8,6 +8,7 @@
 
 import UIKit
 import Search
+import Account
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -23,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene as! UIWindowScene)
         
         let viewController = SearchViewController()
+        viewController.delegate = self
         let navigationController = UINavigationController(rootViewController: viewController)
         let image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight: .heavy))
         viewController.tabBarItem = UITabBarItem(title: viewController.title, image: image, tag: 0)
@@ -60,7 +62,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 
+
+// MARK: - SearchViewControllerDelegate
+
+extension SceneDelegate: SearchViewControllerDelegate {
+    
+    func searchViewControllerDidComplete(_ searchViewController: SearchViewController) {
+        let accountViewController = AccountViewController()
+        searchViewController.navigationController?.pushViewController(accountViewController, animated: true)
+    }
+}

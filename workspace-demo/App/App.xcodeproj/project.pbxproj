@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA104CF324443D0900BFBF96 /* Account.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1C29B0244439B10089EE2F /* Account.framework */; };
+		AA104CF424443D0900BFBF96 /* Account.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA1C29B0244439B10089EE2F /* Account.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA1C28A4244435530089EE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C28A3244435530089EE2F /* AppDelegate.swift */; };
 		AA1C28A6244435530089EE2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C28A5244435530089EE2F /* SceneDelegate.swift */; };
 		AA1C28A8244435530089EE2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C28A7244435530089EE2F /* ViewController.swift */; };
@@ -71,6 +73,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				AA104CF424443D0900BFBF96 /* Account.framework in Embed Frameworks */,
 				AA1C295E244436D70089EE2F /* Search.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -102,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA104CF324443D0900BFBF96 /* Account.framework in Frameworks */,
 				AA1C295D244436D70089EE2F /* Search.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA104CF824443E8600BFBF96 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA104CF724443E8600BFBF96 /* SearchService.swift */; };
 		AA1C29412444366E0089EE2F /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1C29372444366E0089EE2F /* Search.framework */; };
 		AA1C29462444366E0089EE2F /* SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C29452444366E0089EE2F /* SearchTests.swift */; };
 		AA1C29482444366E0089EE2F /* Search.h in Headers */ = {isa = PBXBuildFile; fileRef = AA1C293A2444366E0089EE2F /* Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AA1C295B2444368D0089EE2F /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C295A2444368D0089EE2F /* Search.swift */; };
 		AA1C2961244438800089EE2F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C2960244438800089EE2F /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,13 +25,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA104CF724443E8600BFBF96 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		AA1C29372444366E0089EE2F /* Search.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Search.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1C293A2444366E0089EE2F /* Search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
 		AA1C293B2444366E0089EE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA1C29402444366E0089EE2F /* SearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1C29452444366E0089EE2F /* SearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTests.swift; sourceTree = "<group>"; };
 		AA1C29472444366E0089EE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA1C295A2444368D0089EE2F /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		AA1C2960244438800089EE2F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,8 +77,8 @@
 			children = (
 				AA1C293A2444366E0089EE2F /* Search.h */,
 				AA1C293B2444366E0089EE2F /* Info.plist */,
-				AA1C295A2444368D0089EE2F /* Search.swift */,
 				AA1C2960244438800089EE2F /* SearchViewController.swift */,
+				AA104CF724443E8600BFBF96 /* SearchService.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA1C2961244438800089EE2F /* SearchViewController.swift in Sources */,
-				AA1C295B2444368D0089EE2F /* Search.swift in Sources */,
+				AA104CF824443E8600BFBF96 /* SearchService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

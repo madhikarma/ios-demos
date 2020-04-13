@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA104CF024443B3F00BFBF96 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA104CEF24443B3F00BFBF96 /* AccountViewController.swift */; };
 		AA1C299A244439B00089EE2F /* Account.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1C2990244439B00089EE2F /* Account.framework */; };
 		AA1C299F244439B00089EE2F /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C299E244439B00089EE2F /* AccountTests.swift */; };
 		AA1C29A1244439B00089EE2F /* Account.h in Headers */ = {isa = PBXBuildFile; fileRef = AA1C2993244439B00089EE2F /* Account.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA104CEF24443B3F00BFBF96 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		AA1C2990244439B00089EE2F /* Account.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Account.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1C2993244439B00089EE2F /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		AA1C2994244439B00089EE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		AA1C2992244439B00089EE2F /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				AA104CEF24443B3F00BFBF96 /* AccountViewController.swift */,
 				AA1C2993244439B00089EE2F /* Account.h */,
 				AA1C2994244439B00089EE2F /* Info.plist */,
 			);
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					AA1C298F244439B00089EE2F = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 					AA1C2998244439B00089EE2F = {
 						CreatedOnToolsVersion = 11.4;
@@ -195,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA104CF024443B3F00BFBF96 /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +345,7 @@
 		AA1C29A5244439B00089EE2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -355,6 +361,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.madhikarma.app.Account;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,6 +370,7 @@
 		AA1C29A6244439B00089EE2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -386,6 +394,7 @@
 		AA1C29A8244439B00089EE2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AccountTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -403,6 +412,7 @@
 		AA1C29A9244439B00089EE2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AccountTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

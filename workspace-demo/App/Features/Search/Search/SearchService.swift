@@ -1,5 +1,5 @@
 //
-//  Search.swift
+//  SearchService.swift
 //  Search
 //
 //  Created by Shagun Madhikarmi on 13/04/2020.
@@ -8,11 +8,7 @@
 
 import Foundation
 
-public class Search {
-    
-    public init() {
-        
-    }
+public protocol SearchService {
     public func executeSearch(term: String) -> Result<[String], Error> {
         return .success([term])
     }
