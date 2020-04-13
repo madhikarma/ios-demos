@@ -22,27 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AA104DD92444431B00BFBF96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA104DD32444431A00BFBF96 /* WatchApp.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AA104DA42444431700BFBF96;
-			remoteInfo = WatchApp;
-		};
-		AA104DDB2444431B00BFBF96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA104DD32444431A00BFBF96 /* WatchApp.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AA104DA82444431700BFBF96;
-			remoteInfo = "WatchApp WatchKit App";
-		};
-		AA104DDD2444431B00BFBF96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA104DD32444431A00BFBF96 /* WatchApp.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AA104DB72444431900BFBF96;
-			remoteInfo = "WatchApp WatchKit Extension";
-		};
 		AA1C28B7244435550089EE2F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA1C2898244435530089EE2F /* Project object */;
@@ -103,7 +82,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AA104DD32444431A00BFBF96 /* WatchApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WatchApp.xcodeproj; path = WatchApp/WatchApp.xcodeproj; sourceTree = "<group>"; };
 		AA1C28A0244435530089EE2F /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1C28A3244435530089EE2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA1C28A5244435530089EE2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,20 +127,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA104DD42444431A00BFBF96 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AA104DDA2444431B00BFBF96 /* WatchApp.app */,
-				AA104DDC2444431B00BFBF96 /* WatchApp WatchKit App.app */,
-				AA104DDE2444431B00BFBF96 /* WatchApp WatchKit Extension.appex */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		AA1C2897244435530089EE2F = {
 			isa = PBXGroup;
 			children = (
-				AA104DD32444431A00BFBF96 /* WatchApp.xcodeproj */,
 				AA1C29AA244439B00089EE2F /* Account.xcodeproj */,
 				AA1C29512444366E0089EE2F /* Search.xcodeproj */,
 				AA1C28A2244435530089EE2F /* App */,
@@ -340,10 +307,6 @@
 					ProductGroup = AA1C29522444366E0089EE2F /* Products */;
 					ProjectRef = AA1C29512444366E0089EE2F /* Search.xcodeproj */;
 				},
-				{
-					ProductGroup = AA104DD42444431A00BFBF96 /* Products */;
-					ProjectRef = AA104DD32444431A00BFBF96 /* WatchApp.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -355,27 +318,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		AA104DDA2444431B00BFBF96 /* WatchApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = WatchApp.app;
-			remoteRef = AA104DD92444431B00BFBF96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AA104DDC2444431B00BFBF96 /* WatchApp WatchKit App.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "WatchApp WatchKit App.app";
-			remoteRef = AA104DDB2444431B00BFBF96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AA104DDE2444431B00BFBF96 /* WatchApp WatchKit Extension.appex */ = {
-			isa = PBXReferenceProxy;
-			fileType = "wrapper.app-extension";
-			path = "WatchApp WatchKit Extension.appex";
-			remoteRef = AA104DDD2444431B00BFBF96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		AA1C29572444366F0089EE2F /* Search.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
