@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Search
 
 class ViewController: UIViewController {
 
@@ -15,8 +14,5 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let search = Search()
-        let result = search.executeSearch(term: "hello")
-        print(result)
     }
 }
