@@ -53,21 +53,24 @@ public final class SearchViewController: UIViewController {
         ])
         button.addTarget(self, action: #selector(didPressDone), for: .touchUpInside)
         
-        searchService.getSearchResults("swift").sink(receiveCompletion: { (completion) in
-            switch completion {
-            case .finished:
-                print("finished")
-                self.showAlert(title: "Finished", message: "")
-                break
-            case .failure(let error):
-                print("received the error: ", error)
-                self.showAlert(title: "Error", message: error.localizedDescription)
-                break
-            }
-        }, receiveValue: { (someValue) in
-            print(".sink() received \(someValue)")
-            self.showAlert(title: "receiveValue", message: ".sink() received \(someValue)")
-            }).store(in: &cancellableSet)
+        searchService.getSearchResults("swift")
+            .sink(
+                receiveCompletion: { (completion) in
+                    switch completion {
+                    case .finished:
+                        print("finished")
+                        self.showAlert(title: "Finished", message: "")
+                        break
+                    case .failure(let error):
+                        print("received the error: ", error)
+                        self.showAlert(title: "Error", message: error.localizedDescription)
+                        break
+                    }
+            }, receiveValue: { (someValue) in
+                print(".sink() received \(someValue)")
+                self.showAlert(title: "receiveValue", message: ".sink() received \(someValue)")
+            })
+            .store(in: &cancellableSet)
     }
     
     @objc private func didPressDone() {
@@ -75,8 +78,10 @@ public final class SearchViewController: UIViewController {
     }
     
     private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        alert.addAction(okAction)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alert.addAction(okAction)
+        }
     }
 }
