@@ -9,10 +9,9 @@
 import UIKit
 
 class TweetsTableView: UITableView {
-
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.separatorStyle = UITableViewCellSeparatorStyle.SingleLineEtched
+        separatorStyle = UITableViewCellSeparatorStyle.SingleLineEtched
     }
 }

@@ -15,5 +15,3 @@ public struct Sample {
         self.x = x
     }
 }
-
-

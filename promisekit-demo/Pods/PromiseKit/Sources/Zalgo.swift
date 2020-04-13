@@ -23,7 +23,7 @@ import class Foundation.Thread
            print(x)  // => 0 or 1
        }
        x++
- 
+
     In the latter case the value of `x` may be `0` or `1` depending on whether `foo` is resolved. This is a race-condition that is easily avoided by not using `zalgo`.
 
  - Important: you cannot control the queue that your handler executes if using `zalgo`.
@@ -63,7 +63,6 @@ public let zalgo = DispatchQueue(label: "Zalgo")
  - SeeAlso: `zalgo`
  */
 public let waldo = DispatchQueue(label: "Waldo")
-
 
 @inline(__always) func contain_zalgo(_ q: DispatchQueue, body: @escaping () -> Void) {
     if q === zalgo || q === waldo && !Thread.isMainThread {

@@ -24,12 +24,12 @@ extension Promise {
     }
 
     @available(*, unavailable, message: "unwrap the promise")
-    public func then(on: DispatchQueue = .default, execute body: (T) throws -> AnyPromise?) -> Promise<AnyObject?> { fatalError() }
+    public func then(on _: DispatchQueue = .default, execute _: (T) throws -> AnyPromise?) -> Promise<AnyObject?> { fatalError() }
 }
 
 /**
  `firstly` can make chains more readable.
-*/
+ */
 public func firstly(execute body: () throws -> AnyPromise) -> Promise<Any?> {
     return Promise(sealant: { resolve in
         do {

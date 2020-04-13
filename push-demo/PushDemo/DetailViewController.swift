@@ -9,21 +9,16 @@
 import UIKit
 
 class DetailViewController: BaseViewController {
-
     override func loadView() {
-
         super.loadView()
 
-        self.view = UIView()
-        self.view.backgroundColor = UIColor.whiteColor()
+        view = UIView()
+        view.backgroundColor = UIColor.whiteColor()
     }
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
 
-        self.title = "Detail"
-
+        title = "Detail"
     }
-
 }

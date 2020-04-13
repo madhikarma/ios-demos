@@ -9,19 +9,13 @@
 import UIKit
 
 class Tweet {
-    
     var text: String
     var dateCreated: NSDate?
-    
-    
+
     // MARK: - Initialisers
-    
+
     init(text: String, dateCreated: NSDate?) {
-        
         self.text = text
         self.dateCreated = dateCreated
     }
-    
 }
-
-

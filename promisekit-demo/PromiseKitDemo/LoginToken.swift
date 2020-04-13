@@ -9,6 +9,5 @@
 import Foundation
 
 struct LoginToken {
-    
     let value: String
 }

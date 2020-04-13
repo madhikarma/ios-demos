@@ -9,7 +9,6 @@
 import Foundation
 
 struct NotificationDestination {
-
     var patientId: String
     var alertId: String
     var message: String?

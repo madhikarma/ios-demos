@@ -26,32 +26,27 @@
 
 import Foundation
 
-/// Extension of Array to add remove object functionality 
+/// Extension of Array to add remove object functionality
 
 extension Array {
-
     /**
      Removes the matching object from the Array using generics
 
      - parameter object: The object to be removed (if found)
      */
     mutating func removeObject<T: Equatable>(object: T) {
-
         var index: Int?
 
-        for (idx, objectToCompare) in self.enumerate() {
-
+        for (idx, objectToCompare) in enumerate() {
             let to = objectToCompare as! T
 
             if object == to {
-
                 index = idx
             }
         }
-        
-        if index != nil {
 
-            self.removeAtIndex(index!)
+        if index != nil {
+            removeAtIndex(index!)
         }
     }
 }

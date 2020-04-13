@@ -6,18 +6,14 @@
 //  Copyright © 2019 madhikarma. All rights reserved.
 //
 
-import UIKit
 import FrameworkDemoShared
+import UIKit
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let sample = Sample(x: 5)
         // Do any additional setup after loading the view.
     }
-
-
 }
-

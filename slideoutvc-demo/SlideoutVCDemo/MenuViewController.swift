@@ -9,12 +9,11 @@
 import UIKit
 
 class MenuViewController: UITableViewController {
-
     init() {
         super.init(nibName: "MenuViewController", bundle: nil)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -32,12 +31,12 @@ class MenuViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in _: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 100
     }
@@ -48,5 +47,4 @@ class MenuViewController: UITableViewController {
         cell.textLabel?.text = "\(indexPath.row)"
         return cell
     }
-
 }

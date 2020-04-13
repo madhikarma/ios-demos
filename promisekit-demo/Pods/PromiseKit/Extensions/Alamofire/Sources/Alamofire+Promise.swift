@@ -1,7 +1,7 @@
 @_exported import Alamofire
 import Foundation
 #if !COCOAPODS
-import PromiseKit
+    import PromiseKit
 #endif
 
 /**
@@ -35,9 +35,9 @@ extension Alamofire.DataRequest {
         return Promise { fulfill, reject in
             responseData(queue: nil) { response in
                 switch response.result {
-                case .success(let value):
+                case let .success(value):
                     fulfill(value)
-                case .failure(let error):
+                case let .failure(error):
                     reject(error)
                 }
             }
@@ -49,9 +49,9 @@ extension Alamofire.DataRequest {
         return Promise { fulfill, reject in
             responseString(queue: nil) { response in
                 switch response.result {
-                case .success(let value):
+                case let .success(value):
                     fulfill(value)
-                case .failure(let error):
+                case let .failure(error):
                     reject(error)
                 }
             }
@@ -63,9 +63,9 @@ extension Alamofire.DataRequest {
         return Promise { fulfill, reject in
             responseJSON(queue: nil, options: options, completionHandler: { response in
                 switch response.result {
-                case .success(let value):
+                case let .success(value):
                     fulfill(value)
-                case .failure(let error):
+                case let .failure(error):
                     reject(error)
                 }
             })
@@ -74,37 +74,35 @@ extension Alamofire.DataRequest {
 
     /// Adds a handler to be called once the request has finished. Provides access to the detailed response object.
     ///    request.responseJSON(with: .response).then { json, response in }
-    public func responseJSON(with: PMKAlamofireOptions, options: JSONSerialization.ReadingOptions = .allowFragments) -> Promise<(Any, PMKDataResponse)> {
+    public func responseJSON(with _: PMKAlamofireOptions, options: JSONSerialization.ReadingOptions = .allowFragments) -> Promise<(Any, PMKDataResponse)> {
         return Promise { fulfill, reject in
             responseJSON(queue: nil, options: options, completionHandler: { response in
                 switch response.result {
-                case .success(let value):
+                case let .success(value):
                     fulfill(value, PMKDataResponse(response))
-                case .failure(let error):
+                case let .failure(error):
                     reject(error)
                 }
             })
         }
     }
 
-
     /// Adds a handler to be called once the request has finished and the resulting JSON is rooted at a dictionary.
     public func responseJsonDictionary(options: JSONSerialization.ReadingOptions = .allowFragments) -> Promise<[String: Any]> {
         return Promise { fulfill, reject in
             responseJSON(queue: nil, options: options, completionHandler: { response in
                 switch response.result {
-                case .success(let value):
+                case let .success(value):
                     if let value = value as? [String: Any] {
                         fulfill(value)
                     } else {
                         reject(JSONError.unexpectedRootNode(value))
                     }
-                case .failure(let error):
+                case let .failure(error):
                     reject(error)
                 }
             })
         }
-
     }
 
     /// Adds a handler to be called once the request has finished.
@@ -112,9 +110,9 @@ extension Alamofire.DataRequest {
         return Promise { fulfill, reject in
             responsePropertyList(queue: nil, options: options) { response in
                 switch response.result {
-                case .success(let value):
+                case let .success(value):
                     fulfill(value)
-                case .failure(let error):
+                case let .failure(error):
                     reject(error)
                 }
             }
@@ -130,7 +128,7 @@ extension Alamofire.DownloadRequest {
                 switch response.result {
                 case .success:
                     fulfill(response)
-                case .failure(let error):
+                case let .failure(error):
                     reject(error)
                 }
             }
@@ -138,12 +136,9 @@ extension Alamofire.DownloadRequest {
     }
 }
 
-
-
 public enum PMKAlamofireOptions {
     case response
 }
-
 
 public struct PMKDataResponse {
     fileprivate init(_ rawrsp: Alamofire.DataResponse<Any>) {

@@ -9,12 +9,9 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
     var disabledView: UIView?
 
-
     deinit {
-
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationWillEnterForegroundNotification, object: nil)
     }
 
@@ -22,24 +19,19 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleWillEnterForegroundNotification:", name: UIApplicationWillEnterForegroundNotification, object: nil)
-
     }
 
     override func viewWillAppear(animated: Bool) {
-
         super.viewWillAppear(animated)
 
         print("viewWillAppear")
 
-        self.showOrHideNotificationsDisabledIfNecessary()
+        showOrHideNotificationsDisabledIfNecessary()
     }
 
-    func handleWillEnterForegroundNotification(notification: NSNotification) {
-
+    func handleWillEnterForegroundNotification(notification _: NSNotification) {
         print("handleWillEnterForegroundNotification")
 
-        self.showOrHideNotificationsDisabledIfNecessary()
+        showOrHideNotificationsDisabledIfNecessary()
     }
-    
-
 }

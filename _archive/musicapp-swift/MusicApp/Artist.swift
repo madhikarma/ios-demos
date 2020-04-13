@@ -9,26 +9,19 @@
 import Foundation
 
 class Artist {
-
     // Swift. implicity public
     var id: Int?
     var name: String
     var genre: String
     var imagePath: String
     var website = "http://"
-    
+
     init(name: String, genre: String, imagePath: String) {
-        
         self.name = name
         self.genre = genre
         self.imagePath = imagePath
-        
+
         println(website)
         var newWebsite = website
     }
-    
-    
-    
 }
-
-

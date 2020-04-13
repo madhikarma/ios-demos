@@ -1,7 +1,7 @@
 import Foundation.NSError
 import UIKit
 #if !COCOAPODS
-import PromiseKit
+    import PromiseKit
 #endif
 
 /**
@@ -18,9 +18,8 @@ import PromiseKit
  And then in your sources:
 
     import PromiseKit
-*/
+ */
 extension UIViewController {
-
     public enum PMKError: Error {
         case navigationControllerEmpty
         case noImageFound
@@ -73,21 +72,21 @@ extension UIViewController {
         case .onceDisappeared:
             promise.then { result in
                 vc.presentingViewController?.dismiss(animated: animationOptions.contains(.disappear), completion: { fulfill(result) })
-                }
-                .catch(policy: .allErrors) { error in
-                    vc.presentingViewController?.dismiss(animated: animationOptions.contains(.disappear), completion: { reject(error) })
+            }
+            .catch(policy: .allErrors) { error in
+                vc.presentingViewController?.dismiss(animated: animationOptions.contains(.disappear), completion: { reject(error) })
             }
         case .beforeDismissal:
             promise.then { result -> Void in
                 fulfill(result)
                 vc.presentingViewController?.dismiss(animated: animationOptions.contains(.disappear), completion: nil)
-                }
-                .catch(policy: .allErrors) { error in
-                    reject(error)
-                    vc.presentingViewController?.dismiss(animated: animationOptions.contains(.disappear), completion: nil)
+            }
+            .catch(policy: .allErrors) { error in
+                reject(error)
+                vc.presentingViewController?.dismiss(animated: animationOptions.contains(.disappear), completion: nil)
             }
         }
-        
+
         return wrappingPromise
     }
 
@@ -106,6 +105,6 @@ extension UIViewController {
 
      Obviously return a Promise<T>. There is an issue with generics and Swift and
      protocols currently so we couldn't specify that.
-    */
+     */
     var promise: AnyObject! { get }
 }

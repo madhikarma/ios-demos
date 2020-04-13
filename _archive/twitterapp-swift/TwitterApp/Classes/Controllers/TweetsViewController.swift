@@ -6,147 +6,124 @@
 //  Copyright (c) 2014 madhikarma. All rights reserved.
 //
 
-import UIKit
 import Accounts
 import Social
+import UIKit
 
 let kTweetcellIdentifier = "TweetCellIdentifier"
 
 class TweetsViewController: UITableViewController {
-    
     // Data
     var tweets: [Tweet]?
     let tweetProxy: TweetProxy = TweetProxy()
 
-    
     // MARK: - View lifecycle methods
-    
-    override func viewDidLoad() {
 
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         // UI
-        self.setupTableView()
-        self.loadDataAndUpdateUserInterface()
+        setupTableView()
+        loadDataAndUpdateUserInterface()
     }
-    
-    
+
     // MARK: - User Interface
-    
+
     func updateUserInterface() {
-        
-        self.tableView.reloadData()
-        self.hideLoading()
+        tableView.reloadData()
+        hideLoading()
     }
 
     func showLoading() {
-
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     }
-    
-    func hideLoading() {
 
-        if (self.refreshControl?.refreshing == true) {
-         
-            self.refreshControl?.endRefreshing()
+    func hideLoading() {
+        if refreshControl?.refreshing == true {
+            refreshControl?.endRefreshing()
         }
-        
+
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
-    
+
     func showInfoAlertWithMessage(message: String) {
-        
         var alertView: UIAlertView = UIAlertView(title: "", message: message, delegate: nil, cancelButtonTitle: nil, otherButtonTitles: NSLocalizedString("OK", comment: ""))
         alertView.show()
     }
-    
+
     func setupTableView() {
-        
         var refreshControl: UIRefreshControl = UIRefreshControl()
-        refreshControl.tintColor = UIColor.grayColor();
+        refreshControl.tintColor = UIColor.grayColor()
         refreshControl.addTarget(self, action: "didPullToRefresh:", forControlEvents: UIControlEvents.ValueChanged)
-        
+
         self.refreshControl = refreshControl
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLineEtched
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLineEtched
     }
-    
 
     // MARK: - Data
-    
+
     func loadDataAndUpdateUserInterface() {
-        
-        self.showLoading()
-        
-        self.tweetProxy.loadTweetsWithCompletion({ (tweets) -> () in
-            
+        showLoading()
+
+        tweetProxy.loadTweetsWithCompletion({ (tweets) -> Void in
+
             self.tweets = tweets
             self.updateUserInterface()
-            
-            }, failure: { (error) -> () in
-                
-                self.updateUserInterface()
-                self.showInfoAlertWithMessage(NSLocalizedString("ERROR_LOAD_TWEETS", comment: ""))
+
+        }, failure: { (_) -> Void in
+
+            self.updateUserInterface()
+            self.showInfoAlertWithMessage(NSLocalizedString("ERROR_LOAD_TWEETS", comment: ""))
         })
     }
-    
+
     func getTextFromTweetAtIndex(index: Int) -> String {
-        
         var text = ""
-        
-        if (self.tweets?.count > 0) {
-            
+
+        if tweets?.count > 0 {
             var index: Int = index
-            var tweet: Tweet = self.tweets![index]
+            var tweet: Tweet = tweets![index]
             text = tweet.text
         }
-        
+
         return text
     }
 
-    
     // MARK: - UITableViewDataSource methods
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(kTweetcellIdentifier) as? UITableViewCell
 
-        if (cell == nil) {
+        if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: kTweetcellIdentifier)
         }
 
-        cell!.textLabel!.text = self.getTextFromTweetAtIndex(indexPath.row)
-        cell!.detailTextLabel?.text = self.getTextFromTweetAtIndex(indexPath.row)
-        
+        cell!.textLabel!.text = getTextFromTweetAtIndex(indexPath.row)
+        cell!.detailTextLabel?.text = getTextFromTweetAtIndex(indexPath.row)
+
         return cell!
     }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
+    override func tableView(tableView _: UITableView, numberOfRowsInSection _: Int) -> Int {
         var numberOfRows: Int = 0
-        
-        if (self.tweets?.count > 0) {
-            
-            numberOfRows = self.tweets!.count
+
+        if tweets?.count > 0 {
+            numberOfRows = tweets!.count
         }
-        
+
         return numberOfRows
     }
-    
 
     // MARK: - UITableViewDelegate methods
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        var text = self.getTextFromTweetAtIndex(indexPath.row)
-        self.showInfoAlertWithMessage(text)
+    override func tableView(tableView _: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var text = getTextFromTweetAtIndex(indexPath.row)
+        showInfoAlertWithMessage(text)
     }
-    
 
-    // MARK - UI Action Handlers
-    
-    func didPullToRefresh(sender: UIRefreshControl) {
-        
-        self.loadDataAndUpdateUserInterface()
+    // MARK: - UI Action Handlers
+
+    func didPullToRefresh(sender _: UIRefreshControl) {
+        loadDataAndUpdateUserInterface()
     }
 }
-

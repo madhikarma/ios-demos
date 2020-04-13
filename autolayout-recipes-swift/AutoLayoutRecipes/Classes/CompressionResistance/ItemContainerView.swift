@@ -9,29 +9,24 @@
 import UIKit
 
 class ItemContainerView: BaseView {
-
     private(set) var itemView: ItemView!
-
 
     // MARK: - Setup
 
     override func setup() {
-
         super.setup()
 
-        self.itemView = ItemView()
-        self.addSubview(self.itemView)
+        itemView = ItemView()
+        addSubview(itemView)
     }
-
 
     // MARK: - Constraints
 
     override func setupConstraints() {
-
         super.setupConstraints()
 
-        self.itemView.translatesAutoresizingMaskIntoConstraints = false
+        itemView.translatesAutoresizingMaskIntoConstraints = false
 
-        self.itemView.fillSuperView(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        itemView.fillSuperView(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
 }

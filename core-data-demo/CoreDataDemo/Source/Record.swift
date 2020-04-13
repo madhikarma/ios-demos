@@ -7,11 +7,10 @@
 //
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 public class Record: NSManagedObject {
-
     static let EntityName = "Record"
     @NSManaged public var name: String?
 }

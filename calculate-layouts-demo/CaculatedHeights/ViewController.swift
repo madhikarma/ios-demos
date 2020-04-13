@@ -9,19 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     var mainView: View {
-
         return view as! View
     }
 
     override func loadView() {
-
         view = View()
     }
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
 
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -39,7 +35,7 @@ class ViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: mainView.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor),
-            ])
+        ])
 
         tableView.reloadData()
 
@@ -49,17 +45,14 @@ class ViewController: UIViewController {
         print("totalHeight: \(totalHeight)")
     }
 
-
     // MARK: - Calculate Height
 
     private func calculateHeight() -> CGFloat {
-
         let multilineCell = MultilineCell()
 
         var accumulatedHeight: CGFloat = 0
 
-        for index in 0..<100 {
-
+        for index in 0 ..< 100 {
             let calculatedSize = calculateCellSize(cell: multilineCell, indexPath: IndexPath(row: index, section: 0))
             accumulatedHeight += calculatedSize.height
         }
@@ -70,7 +63,6 @@ class ViewController: UIViewController {
     }
 
     private func calculateCellSize(cell: MultilineCell, indexPath: IndexPath) -> CGSize {
-
         configureMultilineCell(cell: cell, indexPath: indexPath)
 
         cell.layoutSubviews()
@@ -87,29 +79,23 @@ class ViewController: UIViewController {
         return calculatedSize
     }
 
-    fileprivate func configureMultilineCell(cell: MultilineCell, indexPath: IndexPath) {
-
+    fileprivate func configureMultilineCell(cell: MultilineCell, indexPath _: IndexPath) {
         cell.middleLabel.text = "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts."
     }
 }
 
 extension ViewController: UITableViewDataSource {
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
+    func numberOfSections(in _: UITableView) -> Int {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return 100
     }
 }
 
 extension ViewController: UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         guard let multilineCell = tableView.dequeueReusableCell(withIdentifier: MultilineCell.reuseIdentifier, for: indexPath) as? MultilineCell else {
             assertionFailure("Error: could not load MultilineCell")
             return UITableViewCell()

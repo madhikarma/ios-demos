@@ -1,9 +1,9 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+ See LICENSE folder for this sample’s licensing information.
 
-Abstract:
-A view that clips an image to a circle and adds a stroke and shadow.
-*/
+ Abstract:
+ A view that clips an image to a circle and adds a stroke and shadow.
+ */
 
 import SwiftUI
 

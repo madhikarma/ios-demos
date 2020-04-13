@@ -9,12 +9,11 @@
 import UIKit
 
 protocol ViewControllerDelegate: class {
-
     func didPressFilterButton(_ viewController: ViewController)
 }
-class ViewController: UIViewController {
 
-    @IBOutlet weak var filterButton: UIButton!
+class ViewController: UIViewController {
+    @IBOutlet var filterButton: UIButton!
 
     weak var delegate: ViewControllerDelegate?
 
@@ -22,10 +21,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func didPressFilter(_ sender: Any) {
-
+    @IBAction func didPressFilter(_: Any) {
         print("MenuViewController::didPressFilter")
         delegate?.didPressFilterButton(self)
     }
 }
-

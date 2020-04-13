@@ -12,12 +12,9 @@ let isLoggedIn: Bool = false
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
 
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
+    func application(application _: UIApplication, didFinishLaunchingWithOptions _: [NSObject: AnyObject]?) -> Bool {
         // Create window and set root ViewController
 
         var firstViewController = MainViewController()
@@ -28,10 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = navigationController
         self.window = window
 
-
         self.window?.makeKeyAndVisible()
 
         return true
     }
 }
-

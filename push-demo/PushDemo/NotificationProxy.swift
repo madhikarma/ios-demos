@@ -10,67 +10,56 @@ import Foundation
 import Google
 
 class NotificationProxy: NSObject, GGLInstanceIDDelegate {
-
     private var senderId: String?
     private var deviceToken: NSData?
     private var authorizationTokenString: NSString?
     private var registrationOptions: [String: AnyObject] = [String: AnyObject]()
-    private var registrationCompletionBlock: ((String?, NSError?) -> ())?
-
+    private var registrationCompletionBlock: ((String?, NSError?) -> Void)?
 
     // Singleton
 
     static let sharedInstance = NotificationProxy()
 
-
     // MARK: - Initialisers
 
     override init() {
-
         super.init()
 
-        self.setup()
+        setup()
     }
 
     func setup() {
-
         var error: NSError?
 
         GGLContext.sharedInstance().configureWithError(&error)
-        self.senderId = GGLContext.sharedInstance().configuration.gcmSenderID
+        senderId = GGLContext.sharedInstance().configuration.gcmSenderID
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleAppDidRegisterForRemoteNotificationSuccess:", name: kAppDidRegisterForRemoteNotificationSuccess, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleAppDidRegisterForRemoteNotificationFail:", name: kAppDidRegisterForRemoteNotificationFail, object: nil)
     }
 
-
     // MARK: - Registration
 
-    func registerForPushNotifications(completion: ((authorizationTokenString: String?, error: NSError?) -> ())?) {
-
+    func registerForPushNotifications(completion: ((authorizationTokenString: String?, error: NSError?) -> Void)?) {
         // Store the closure
 
-        self.registrationCompletionBlock = completion
+        registrationCompletionBlock = completion
 
         // Note. will wait for notification to trigger
 
         // 1. Register with Apple push notifications
 
         if !UIDevice.isRunningSimulator {
-
-            self.authorizePushNotificationAccess()
+            authorizePushNotificationAccess()
 
         } else {
-
             if let completionBlock = completion {
-
                 completionBlock(authorizationTokenString: nil, error: nil)
             }
         }
     }
 
     private func authorizePushNotificationAccess() {
-
         print("authorizePushNotificationAccess")
 
         // Setup Apple Push Notifications
@@ -81,8 +70,7 @@ class NotificationProxy: NSObject, GGLInstanceIDDelegate {
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
     }
 
-    private func authorizePushNotificationProviderAccess(deviceToken: NSData, completion: ((authorizationTokenString: String?, error: NSError?) -> ())?) {
-
+    private func authorizePushNotificationProviderAccess(deviceToken: NSData, completion: ((authorizationTokenString: String?, error: NSError?) -> Void)?) {
         print("authorizePushNotificationProviderAccess")
 
         // Store Apple's Push Notification token (in case we need to refresh Google's token)
@@ -102,9 +90,9 @@ class NotificationProxy: NSObject, GGLInstanceIDDelegate {
         // Create / Store registration options for Google Cloud Messaging (in case we need to refresh Google's token)
 
         #if SANDBOX
-            self.registrationOptions = [kGGLInstanceIDRegisterAPNSOption: deviceToken, kGGLInstanceIDAPNSServerTypeSandboxOption: true]
+            registrationOptions = [kGGLInstanceIDRegisterAPNSOption: deviceToken, kGGLInstanceIDAPNSServerTypeSandboxOption: true]
         #else
-            self.registrationOptions = [kGGLInstanceIDRegisterAPNSOption: deviceToken, kGGLInstanceIDAPNSServerTypeSandboxOption: false]
+            registrationOptions = [kGGLInstanceIDRegisterAPNSOption: deviceToken, kGGLInstanceIDAPNSServerTypeSandboxOption: false]
         #endif
 
         // Get the sender id for this app (from the configured context but originally from the info plist)
@@ -113,12 +101,11 @@ class NotificationProxy: NSObject, GGLInstanceIDDelegate {
 
         // Get token string from Google for this app
 
-        GGLInstanceID.sharedInstance().tokenWithAuthorizedEntity(senderId, scope: kGGLInstanceIDScopeGCM, options: self.registrationOptions, handler: { (authorizationTokenString, error) -> Void in
+        GGLInstanceID.sharedInstance().tokenWithAuthorizedEntity(senderId, scope: kGGLInstanceIDScopeGCM, options: registrationOptions, handler: { (authorizationTokenString, error) -> Void in
 
             print("\(authorizationTokenString)")
 
             if let tokenString = authorizationTokenString {
-
                 // Store token string e.g. for Login requests
 
                 self.authorizationTokenString = tokenString
@@ -127,33 +114,27 @@ class NotificationProxy: NSObject, GGLInstanceIDDelegate {
             // Trigger completion block
 
             if let completionBlock = completion {
-
                 completionBlock(authorizationTokenString: authorizationTokenString, error: error)
             }
         })
     }
 
-
     // MARK: - Notification actions
 
     func handleAppDidRegisterForRemoteNotificationSuccess(notification: NSNotification) {
-
         print("handleAppDidRegisterForRemoteNotificationSuccess")
 
         if let deviceToken: NSData = notification.object as? NSData {
-
             // 1. Register with Push notification provider
 
-            self.authorizePushNotificationProviderAccess(deviceToken, completion: self.registrationCompletionBlock)
+            authorizePushNotificationProviderAccess(deviceToken, completion: registrationCompletionBlock)
         }
     }
 
-    func handleAppDidRegisterForRemoteNotificationFail(notification: NSNotification) {
+    func handleAppDidRegisterForRemoteNotificationFail(notification _: NSNotification) {
+        print("handleAppDidRegisterForRemoteNotificationFail")
 
-      print("handleAppDidRegisterForRemoteNotificationFail")
-
-        if let registrationCompletion = self.registrationCompletionBlock {
-
+        if let registrationCompletion = registrationCompletionBlock {
             // Send failure
 
             // TODO: error
@@ -164,40 +145,31 @@ class NotificationProxy: NSObject, GGLInstanceIDDelegate {
         }
     }
 
-
     // MARK: - Cancellation
 
     func cancelRequests() {
-
-      self.registrationCompletionBlock = nil
+        registrationCompletionBlock = nil
     }
-
 
     // MARK: - GGLInstanceIDDelegate
 
     func onTokenRefresh() {
+        print("onTokenRefresh")
 
-      print("onTokenRefresh")
-
-        if let deviceTokenData = self.deviceToken {
-
-            self.authorizePushNotificationProviderAccess(deviceTokenData, completion: nil)
+        if let deviceTokenData = deviceToken {
+            authorizePushNotificationProviderAccess(deviceTokenData, completion: nil)
         }
     }
 
     func notificationsSupported() -> Bool {
-
         var notificationsSupported: Bool = false
 
         if let currentUserNotificationSettings = UIApplication.sharedApplication().currentUserNotificationSettings() {
-
             if currentUserNotificationSettings.types.rawValue & UIUserNotificationType.Alert.rawValue != 0 {
-
                 notificationsSupported = true
-
             }
         }
-        
+
         return notificationsSupported
     }
 }

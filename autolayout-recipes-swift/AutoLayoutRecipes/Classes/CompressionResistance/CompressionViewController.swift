@@ -9,22 +9,18 @@
 import UIKit
 
 class CompressionViewController: UIViewController {
-
-
     // MARK: - View lifecycle
 
     override func loadView() {
-
         super.loadView()
 
-        self.view = CompressionView()
+        view = CompressionView()
     }
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.grayColor()
+        view.backgroundColor = UIColor.grayColor()
 
         let itemContainerView = ItemContainerView()
         itemContainerView.layer.cornerRadius = 2.5
@@ -48,10 +44,10 @@ class CompressionViewController: UIViewController {
 //        itemContainerView.itemView.keyValueView.valueLabel.text = nil
 
         itemContainerView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(itemContainerView)
+        view.addSubview(itemContainerView)
 
-        itemContainerView.addLeftConstraint(toView: self.view)
-        itemContainerView.addRightConstraint(toView: self.view)
-        itemContainerView.addCenterYConstraint(toView: self.view)
+        itemContainerView.addLeftConstraint(toView: view)
+        itemContainerView.addRightConstraint(toView: view)
+        itemContainerView.addCenterYConstraint(toView: view)
     }
 }

@@ -29,13 +29,13 @@ import Foundation
 /// See https://tools.ietf.org/html/rfc7231#section-4.3
 public enum HTTPMethod: String {
     case options = "OPTIONS"
-    case get     = "GET"
-    case head    = "HEAD"
-    case post    = "POST"
-    case put     = "PUT"
-    case patch   = "PATCH"
-    case delete  = "DELETE"
-    case trace   = "TRACE"
+    case get = "GET"
+    case head = "HEAD"
+    case post = "POST"
+    case put = "PUT"
+    case patch = "PATCH"
+    case delete = "DELETE"
+    case trace = "TRACE"
     case connect = "CONNECT"
 }
 
@@ -68,7 +68,6 @@ public protocol ParameterEncoding {
 /// collection types, the convention of appending `[]` to the key for array values (`foo[]=1&foo[]=2`), and appending
 /// the key surrounded by square brackets for nested dictionary values (`foo[bar]=baz`).
 public struct URLEncoding: ParameterEncoding {
-
     // MARK: Helper Types
 
     /// Defines whether the url-encoded query string is applied to the existing query string or HTTP body of the
@@ -165,12 +164,12 @@ public struct URLEncoding: ParameterEncoding {
             }
         } else if let value = value as? NSNumber {
             if value.isBool {
-                components.append((escape(key), escape((value.boolValue ? "1" : "0"))))
+                components.append((escape(key), escape(value.boolValue ? "1" : "0")))
             } else {
                 components.append((escape(key), escape("\(value)")))
             }
         } else if let bool = value as? Bool {
-            components.append((escape(key), escape((bool ? "1" : "0"))))
+            components.append((escape(key), escape(bool ? "1" : "0")))
         } else {
             components.append((escape(key), escape("\(value)")))
         }
@@ -221,7 +220,7 @@ public struct URLEncoding: ParameterEncoding {
             while index != string.endIndex {
                 let startIndex = index
                 let endIndex = string.index(index, offsetBy: batchSize, limitedBy: string.endIndex) ?? string.endIndex
-                let range = startIndex..<endIndex
+                let range = startIndex ..< endIndex
 
                 let substring = string.substring(with: range)
 
@@ -269,7 +268,6 @@ public struct URLEncoding: ParameterEncoding {
 /// Uses `JSONSerialization` to create a JSON representation of the parameters object, which is set as the body of the
 /// request. The `Content-Type` HTTP header field of an encoded request is set to `application/json`.
 public struct JSONEncoding: ParameterEncoding {
-
     // MARK: Properties
 
     /// Returns a `JSONEncoding` instance with default writing options.
@@ -357,7 +355,6 @@ public struct JSONEncoding: ParameterEncoding {
 /// associated format and write options values, which is set as the body of the request. The `Content-Type` HTTP header
 /// field of an encoded request is set to `application/x-plist`.
 public struct PropertyListEncoding: ParameterEncoding {
-
     // MARK: Properties
 
     /// Returns a default `PropertyListEncoding` instance.
@@ -385,8 +382,8 @@ public struct PropertyListEncoding: ParameterEncoding {
     /// - returns: The new `PropertyListEncoding` instance.
     public init(
         format: PropertyListSerialization.PropertyListFormat = .xml,
-        options: PropertyListSerialization.WriteOptions = 0)
-    {
+        options: PropertyListSerialization.WriteOptions = 0
+    ) {
         self.format = format
         self.options = options
     }

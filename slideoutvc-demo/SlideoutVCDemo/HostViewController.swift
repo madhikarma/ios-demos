@@ -9,7 +9,6 @@
 import UIKit
 
 class HostViewController: UIViewController {
-
     private var viewController: ViewController!
     let menuViewController = MenuViewController()
 
@@ -21,10 +20,10 @@ class HostViewController: UIViewController {
     }
 
     override func loadView() {
-        self.view = UIView()
+        view = UIView()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -46,12 +45,12 @@ class HostViewController: UIViewController {
                 viewController.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
                 viewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
                 viewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-                viewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+                viewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             ])
 
         // Menu
         add(menuViewController)
-        self.menuViewController.view.backgroundColor = .purple
+        menuViewController.view.backgroundColor = .purple
         menuViewController.view.translatesAutoresizingMaskIntoConstraints = false
         leadingConstraint = menuViewController.view.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         NSLayoutConstraint.activate(
@@ -59,24 +58,21 @@ class HostViewController: UIViewController {
                 menuViewController.view.topAnchor.constraint(equalTo: viewController.filterButton.bottomAnchor, constant: 0),
                 leadingConstraint!,
                 menuViewController.view.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5, constant: 0),
-                menuViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+                menuViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
             ])
     }
 }
 
-
 // MARK: - ViewControllerDelegate
 
 extension HostViewController: ViewControllerDelegate {
-
-    func didPressFilterButton(_ viewController: ViewController) {
-
+    func didPressFilterButton(_: ViewController) {
         let damping: CGFloat
         let velocity: CGFloat
         if !isOpen {
             leadingConstraint?.isActive = false
             leadingConstraint =
-                self.menuViewController.view.leadingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0)
+                menuViewController.view.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 0)
             leadingConstraint?.isActive = true
 
             damping = 1
@@ -97,9 +93,9 @@ extension HostViewController: ViewControllerDelegate {
                        initialSpringVelocity: velocity,
                        options: .curveEaseInOut,
                        animations: {
-                        self.view.layoutIfNeeded()
+                           self.view.layoutIfNeeded()
 
-        }) { (finished) in
+        }) { _ in
             print("done")
             self.isOpen = !self.isOpen
         }
@@ -111,6 +107,5 @@ extension HostViewController: ViewControllerDelegate {
 //
 //
 //        })
-
     }
 }

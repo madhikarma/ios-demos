@@ -9,9 +9,7 @@
 import UIKit
 
 extension UIDevice {
-
     class var isRunningSimulator: Bool {
-
         return TARGET_OS_SIMULATOR != 0
     }
 }

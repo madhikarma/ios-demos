@@ -9,29 +9,26 @@
 import UIKit
 
 /**
-    CenterDemoView is the main view of CenterDemoViewController and centers its subview
-*/
+ CenterDemoView is the main view of CenterDemoViewController and centers its subview
+ */
 class CenterDemoView: BaseView {
-
     var customView: CustomView?
 
     override func setup() {
-        
         super.setup()
-        
-        self.customView = CustomView(frame: CGRectZero)
-        self.customView?.clipsToBounds = true
-        self.customView?.translatesAutoresizingMaskIntoConstraints = false
-        self.customView?.backgroundColor = UIColor.blueColor()
-        self.addSubview(self.customView!)
+
+        customView = CustomView(frame: CGRect.zero)
+        customView?.clipsToBounds = true
+        customView?.translatesAutoresizingMaskIntoConstraints = false
+        customView?.backgroundColor = UIColor.blueColor()
+        addSubview(customView!)
     }
-    
+
     override func setupConstraints() {
-        
         // Height and width is automatically inferred by the view's subview arrangement
-        self.customView?.addHeightConstraint(toView: nil, relation: .GreaterThanOrEqual, constant: 0.0)
-        self.customView?.addWidthConstraint(toView: nil, relation: .GreaterThanOrEqual, constant: 0.0)
-        self.customView?.addCenterXConstraint(toView: self.customView?.superview)
-        self.customView?.addCenterYConstraint(toView: self.customView?.superview)
+        customView?.addHeightConstraint(toView: nil, relation: .GreaterThanOrEqual, constant: 0.0)
+        customView?.addWidthConstraint(toView: nil, relation: .GreaterThanOrEqual, constant: 0.0)
+        customView?.addCenterXConstraint(toView: customView?.superview)
+        customView?.addCenterYConstraint(toView: customView?.superview)
     }
 }

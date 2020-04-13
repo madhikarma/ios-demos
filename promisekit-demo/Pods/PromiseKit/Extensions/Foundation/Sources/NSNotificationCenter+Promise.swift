@@ -1,6 +1,6 @@
 import Foundation.NSNotification
 #if !COCOAPODS
-import PromiseKit
+    import PromiseKit
 #endif
 
 /**
@@ -17,7 +17,7 @@ import PromiseKit
  And then in your sources:
 
     import PromiseKit
-*/
+ */
 extension NotificationCenter {
     /// Observe the named notification once
     public func observe(once name: Notification.Name, object: Any? = nil) -> NotificationPromise {

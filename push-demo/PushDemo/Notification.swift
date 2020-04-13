@@ -9,7 +9,6 @@
 import Foundation
 
 struct Notification {
-
     var alert: NotificationAlert?
     var destination: NotificationDestination
     var message: String?

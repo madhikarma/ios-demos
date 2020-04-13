@@ -1,6 +1,6 @@
-import UIKit
-import Foundation
 import Combine
+import Foundation
+import UIKit
 
 struct BlogPost {
     let title: String
@@ -13,17 +13,16 @@ extension Notification.Name {
 
 // TOOD: is this a good / bad pattern for mobing the pub / sub code out from controller code?
 struct BlogPostSubscriptionHandler {
-    
     func subscribeBlogPostCreated(label: UILabel) {
         let publisher = NotificationCenter.Publisher(center: .default, name: .newBlogPost, object: nil)
-        .map { (notification) -> String? in
-            return (notification.object as? BlogPost)?.title ?? ""
-        }
+            .map { (notification) -> String? in
+                (notification.object as? BlogPost)?.title ?? ""
+            }
 
         let subscriber = Subscribers.Assign(object: label, keyPath: \.text)
         publisher.subscribe(subscriber)
     }
-    
+
     func createBlogPost() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             let blogPostURL = URL(string: "https://www.avanderlee.com/")!
@@ -35,20 +34,17 @@ struct BlogPostSubscriptionHandler {
 }
 
 class BlogPostController {
-    
     let label = UILabel()
     let handler = BlogPostSubscriptionHandler()
 
     func setup() {
         handler.subscribeBlogPostCreated(label: label)
     }
-    
+
     func createBlogPost() {
         handler.createBlogPost()
     }
 }
-
-
 
 let controller = BlogPostController()
 controller.setup()

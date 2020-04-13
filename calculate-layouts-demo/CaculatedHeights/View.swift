@@ -8,6 +8,4 @@
 
 import UIKit
 
-class View: UIView {
-
-}
+class View: UIView {}

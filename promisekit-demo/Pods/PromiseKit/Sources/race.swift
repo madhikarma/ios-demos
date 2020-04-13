@@ -8,7 +8,7 @@
  - Returns: A new promise that resolves when the first promise in the provided promises resolves.
  - Warning: If any of the provided promises reject, the returned promise is rejected.
  - Warning: aborts if the array is empty.
-*/
+ */
 public func race<T>(promises: [Promise<T>]) -> Promise<T> {
     guard promises.count > 0 else {
         fatalError("Cannot race with an empty array of promises")
@@ -26,7 +26,7 @@ public func race<T>(promises: [Promise<T>]) -> Promise<T> {
  - Returns: A new promise that resolves when the first promise in the provided promises resolves.
  - Warning: If any of the provided promises reject, the returned promise is rejected.
  - Warning: aborts if the array is empty.
-*/
+ */
 public func race<T>(_ promises: Promise<T>...) -> Promise<T> {
     return _race(promises: promises)
 }

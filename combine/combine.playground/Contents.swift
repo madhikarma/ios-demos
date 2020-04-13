@@ -1,5 +1,5 @@
-import UIKit
 import Combine
+import UIKit
 
 // https://www.avanderlee.com/swift/combine/
 
@@ -21,7 +21,7 @@ extension Notification.Name {
 let blogPostPublisher = NotificationCenter.Publisher(center: .default, name: .newBlogPost, object: nil)
     .map { (notification) -> String? in
         // extract (map) data from this event (notification) whenever its received by a subscriber
-        return (notification.object as? BlogPost)?.title ?? ""
+        (notification.object as? BlogPost)?.title ?? ""
     }
 
 // - Subscriber

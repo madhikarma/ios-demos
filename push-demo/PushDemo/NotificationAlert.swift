@@ -9,10 +9,8 @@
 import Foundation
 
 struct NotificationAlert {
-
     var title: String?
     var badge: Int?
     var body: String?
     var sound: String?
 }
-

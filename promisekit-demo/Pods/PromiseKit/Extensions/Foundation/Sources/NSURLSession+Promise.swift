@@ -1,6 +1,6 @@
 import Foundation
 #if !COCOAPODS
-import PromiseKit
+    import PromiseKit
 #endif
 
 /**
@@ -17,7 +17,7 @@ import PromiseKit
  And then in your sources:
 
     import PromiseKit
-*/
+ */
 extension URLSession {
     /**
      Makes an HTTP request using the parameters specified by the provided URL
@@ -29,17 +29,17 @@ extension URLSession {
          NSURLSession.shared.dataTask(with: rq).asDictionary().then { json in
              //…
          }
-     
+
      [We provide OMG extensions](https://github.com/PromiseKit/OMGHTTPURLRQ)
      that allow eg:
-     
+
          URLSession.shared.POST(url, json: ["a": "b"])
 
      - Parameter request: The URL request.
      - Returns: A promise that represents the URL request.
      - SeeAlso: `URLDataPromise`
      - SeeAlso: [OMGHTTPURLRQ]
-     
+
      [OMGHTTPURLRQ]: https://github.com/mxcl/OMGHTTPURLRQ
      */
     public func dataTask(with request: URLRequest) -> URLDataPromise {

@@ -9,21 +9,17 @@
 import UIKit
 
 class CompressionView: BaseView {
-
     // MARK: - Setup
 
     override func setup() {
-
         super.setup()
 
-        self.backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor.whiteColor()
     }
-
 
     // MARK: - Constraints
 
     override func setupConstraints() {
-
         super.setupConstraints()
     }
 }

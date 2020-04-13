@@ -9,7 +9,6 @@
 import UIKit
 
 public final class AccountViewController: UIViewController {
-
     public override func loadView() {
         view = UIView()
     }
