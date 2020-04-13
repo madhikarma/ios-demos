@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Combine
+
 
 public protocol SearchViewControllerDelegate: class {
     func searchViewControllerDidComplete(_ searchViewController: SearchViewController)
@@ -17,6 +19,8 @@ public final class SearchViewController: UIViewController {
     public weak var delegate: SearchViewControllerDelegate?
     private let button = UIButton()
     private let searchService: SearchServiceProtocol
+    private var cancellableSet: Set<AnyCancellable> = []
+
     
     public init(service: SearchServiceProtocol = SearchService()) {
         self.searchService = service
@@ -49,34 +53,30 @@ public final class SearchViewController: UIViewController {
         ])
         button.addTarget(self, action: #selector(didPressDone), for: .touchUpInside)
         
-        let publisher = searchService.getSearchResults("swift").sink(receiveCompletion: { (completion) in
+        searchService.getSearchResults("swift").sink(receiveCompletion: { (completion) in
             switch completion {
             case .finished:
                 print("finished")
-                let alert = UIAlertController(title: "Finished", message: "", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                alert.addAction(okAction)
+                self.showAlert(title: "Finished", message: "")
                 break
             case .failure(let error):
                 print("received the error: ", error)
-                
-                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                alert.addAction(okAction)
+                self.showAlert(title: "Error", message: error.localizedDescription)
                 break
             }
         }, receiveValue: { (someValue) in
             print(".sink() received \(someValue)")
-            
-            let alert = UIAlertController(title: "received value", message: "\(someValue)", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-            alert.addAction(okAction)
-
-        })
-
+            self.showAlert(title: "receiveValue", message: ".sink() received \(someValue)")
+            }).store(in: &cancellableSet)
     }
     
     @objc private func didPressDone() {
         delegate?.searchViewControllerDidComplete(self)
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(okAction)
     }
 }

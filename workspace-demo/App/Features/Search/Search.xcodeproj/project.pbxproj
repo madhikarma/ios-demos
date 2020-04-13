@@ -12,8 +12,8 @@
 		AA1C29462444366E0089EE2F /* SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C29452444366E0089EE2F /* SearchTests.swift */; };
 		AA1C29482444366E0089EE2F /* Search.h in Headers */ = {isa = PBXBuildFile; fileRef = AA1C293A2444366E0089EE2F /* Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA1C2961244438800089EE2F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C2960244438800089EE2F /* SearchViewController.swift */; };
-		AA823DFF24445239009EE81E /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA823DFE24445239009EE81E /* Network.framework */; };
-		AA823E0024445239009EE81E /* Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA823DFE24445239009EE81E /* Network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA823E6724446A74009EE81E /* NetworkClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA823E6624446A74009EE81E /* NetworkClient.framework */; };
+		AA823E6824446A74009EE81E /* NetworkClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA823E6624446A74009EE81E /* NetworkClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,13 +27,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AA823E0124445239009EE81E /* Embed Frameworks */ = {
+		AA823E6924446A74009EE81E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AA823E0024445239009EE81E /* Network.framework in Embed Frameworks */,
+				AA823E6824446A74009EE81E /* NetworkClient.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,6 +50,10 @@
 		AA1C29472444366E0089EE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA1C2960244438800089EE2F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AA823DFE24445239009EE81E /* Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA823E02244468C8009EE81E /* Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA823E0F2444695B009EE81E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		AA823E1124446961009EE81E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AA823E6624446A74009EE81E /* NetworkClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA823DFF24445239009EE81E /* Network.framework in Frameworks */,
+				AA823E6724446A74009EE81E /* NetworkClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +118,10 @@
 		AA823DFD24445239009EE81E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA823E6624446A74009EE81E /* NetworkClient.framework */,
+				AA823E1124446961009EE81E /* UIKit.framework */,
+				AA823E0F2444695B009EE81E /* Foundation.framework */,
+				AA823E02244468C8009EE81E /* Network.framework */,
 				AA823DFE24445239009EE81E /* Network.framework */,
 			);
 			name = Frameworks;
@@ -141,7 +149,7 @@
 				AA1C29332444366E0089EE2F /* Sources */,
 				AA1C29342444366E0089EE2F /* Frameworks */,
 				AA1C29352444366E0089EE2F /* Resources */,
-				AA823E0124445239009EE81E /* Embed Frameworks */,
+				AA823E6924446A74009EE81E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -393,6 +401,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.madhikarma.app.Search;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -418,6 +427,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.madhikarma.app.Search;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -31,6 +31,8 @@
 		AA1C2999244439B00089EE2F /* AccountTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccountTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1C299E244439B00089EE2F /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		AA1C29A0244439B00089EE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA823E0B2444694D009EE81E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		AA823E0D24446953009EE81E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				AA1C2992244439B00089EE2F /* Account */,
 				AA1C299D244439B00089EE2F /* AccountTests */,
 				AA1C2991244439B00089EE2F /* Products */,
+				AA823E0A2444694D009EE81E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +90,15 @@
 				AA1C29A0244439B00089EE2F /* Info.plist */,
 			);
 			path = AccountTests;
+			sourceTree = "<group>";
+		};
+		AA823E0A2444694D009EE81E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA823E0D24446953009EE81E /* UIKit.framework */,
+				AA823E0B2444694D009EE81E /* Foundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.madhikarma.app.Account;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -386,6 +399,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.madhikarma.app.Account;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

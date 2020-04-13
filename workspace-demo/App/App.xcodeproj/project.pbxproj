@@ -19,8 +19,6 @@
 		AA1C28C6244435550089EE2F /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C28C5244435550089EE2F /* AppUITests.swift */; };
 		AA1C295D244436D70089EE2F /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1C29572444366F0089EE2F /* Search.framework */; };
 		AA1C295E244436D70089EE2F /* Search.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA1C29572444366F0089EE2F /* Search.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AA823DFB24445231009EE81E /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA823DF6244451DD009EE81E /* Network.framework */; };
-		AA823DFC24445231009EE81E /* Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA823DF6244451DD009EE81E /* Network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,19 +64,19 @@
 			remoteGlobalIDString = AA1C2999244439B00089EE2F;
 			remoteInfo = AccountTests;
 		};
-		AA823DF5244451DD009EE81E /* PBXContainerItemProxy */ = {
+		AA823E60244469C2009EE81E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AA823DF0244451DC009EE81E /* Network.xcodeproj */;
+			containerPortal = AA823E5B244469C1009EE81E /* NetworkClient.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = AA823DD6244451DC009EE81E;
-			remoteInfo = Network;
+			remoteGlobalIDString = AA823E41244469C1009EE81E;
+			remoteInfo = NetworkClient;
 		};
-		AA823DF7244451DD009EE81E /* PBXContainerItemProxy */ = {
+		AA823E62244469C2009EE81E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AA823DF0244451DC009EE81E /* Network.xcodeproj */;
+			containerPortal = AA823E5B244469C1009EE81E /* NetworkClient.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = AA823DDF244451DC009EE81E;
-			remoteInfo = NetworkTests;
+			remoteGlobalIDString = AA823E4A244469C1009EE81E;
+			remoteInfo = NetworkClientTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -91,7 +89,6 @@
 			files = (
 				AA104CF424443D0900BFBF96 /* Account.framework in Embed Frameworks */,
 				AA1C295E244436D70089EE2F /* Search.framework in Embed Frameworks */,
-				AA823DFC24445231009EE81E /* Network.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,7 +112,8 @@
 		AA1C28C7244435550089EE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA1C29512444366E0089EE2F /* Search.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Search.xcodeproj; path = Features/Search/Search.xcodeproj; sourceTree = "<group>"; };
 		AA1C29AA244439B00089EE2F /* Account.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Account.xcodeproj; path = Features/Account/Account.xcodeproj; sourceTree = "<group>"; };
-		AA823DF0244451DC009EE81E /* Network.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Network.xcodeproj; path = Features/Network/Network.xcodeproj; sourceTree = "<group>"; };
+		AA823E06244468F1009EE81E /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
+		AA823E5B244469C1009EE81E /* NetworkClient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkClient.xcodeproj; path = Features/NetworkClient/NetworkClient.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +123,6 @@
 			files = (
 				AA104CF324443D0900BFBF96 /* Account.framework in Frameworks */,
 				AA1C295D244436D70089EE2F /* Search.framework in Frameworks */,
-				AA823DFB24445231009EE81E /* Network.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +146,7 @@
 		AA1C2897244435530089EE2F = {
 			isa = PBXGroup;
 			children = (
-				AA823DF0244451DC009EE81E /* Network.xcodeproj */,
+				AA823E5B244469C1009EE81E /* NetworkClient.xcodeproj */,
 				AA1C29AA244439B00089EE2F /* Account.xcodeproj */,
 				AA1C29512444366E0089EE2F /* Search.xcodeproj */,
 				AA1C28A2244435530089EE2F /* App */,
@@ -173,6 +170,7 @@
 		AA1C28A2244435530089EE2F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				AA823E06244468F1009EE81E /* App.entitlements */,
 				AA1C28A3244435530089EE2F /* AppDelegate.swift */,
 				AA1C28A5244435530089EE2F /* SceneDelegate.swift */,
 				AA1C28A7244435530089EE2F /* ViewController.swift */,
@@ -227,11 +225,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AA823DF1244451DC009EE81E /* Products */ = {
+		AA823E5C244469C1009EE81E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA823DF6244451DD009EE81E /* Network.framework */,
-				AA823DF8244451DD009EE81E /* NetworkTests.xctest */,
+				AA823E61244469C2009EE81E /* NetworkClient.framework */,
+				AA823E63244469C2009EE81E /* NetworkClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -333,8 +331,8 @@
 					ProjectRef = AA1C29AA244439B00089EE2F /* Account.xcodeproj */;
 				},
 				{
-					ProductGroup = AA823DF1244451DC009EE81E /* Products */;
-					ProjectRef = AA823DF0244451DC009EE81E /* Network.xcodeproj */;
+					ProductGroup = AA823E5C244469C1009EE81E /* Products */;
+					ProjectRef = AA823E5B244469C1009EE81E /* NetworkClient.xcodeproj */;
 				},
 				{
 					ProductGroup = AA1C29522444366E0089EE2F /* Products */;
@@ -379,18 +377,18 @@
 			remoteRef = AA1C29B1244439B10089EE2F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AA823DF6244451DD009EE81E /* Network.framework */ = {
+		AA823E61244469C2009EE81E /* NetworkClient.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = Network.framework;
-			remoteRef = AA823DF5244451DD009EE81E /* PBXContainerItemProxy */;
+			path = NetworkClient.framework;
+			remoteRef = AA823E60244469C2009EE81E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AA823DF8244451DD009EE81E /* NetworkTests.xctest */ = {
+		AA823E63244469C2009EE81E /* NetworkClientTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = NetworkTests.xctest;
-			remoteRef = AA823DF7244451DD009EE81E /* PBXContainerItemProxy */;
+			path = NetworkClientTests.xctest;
+			remoteRef = AA823E62244469C2009EE81E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -602,6 +600,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -610,6 +609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.madhikarma.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -619,6 +619,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -627,6 +628,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.madhikarma.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
