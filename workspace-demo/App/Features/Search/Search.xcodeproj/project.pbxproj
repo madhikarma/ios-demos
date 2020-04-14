@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		AA1C29462444366E0089EE2F /* SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C29452444366E0089EE2F /* SearchTests.swift */; };
 		AA1C29482444366E0089EE2F /* Search.h in Headers */ = {isa = PBXBuildFile; fileRef = AA1C293A2444366E0089EE2F /* Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA1C2961244438800089EE2F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C2960244438800089EE2F /* SearchViewController.swift */; };
+		AA4B1BB62446733300F15E3A /* GitHubAPI in Frameworks */ = {isa = PBXBuildFile; productRef = AA4B1BB52446733300F15E3A /* GitHubAPI */; };
 		AA823E6724446A74009EE81E /* NetworkClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA823E6624446A74009EE81E /* NetworkClient.framework */; };
 		AA823E6824446A74009EE81E /* NetworkClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA823E6624446A74009EE81E /* NetworkClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA4B1BB62446733300F15E3A /* GitHubAPI in Frameworks */,
 				AA823E6724446A74009EE81E /* NetworkClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +158,9 @@
 			dependencies = (
 			);
 			name = Search;
+			packageProductDependencies = (
+				AA4B1BB52446733300F15E3A /* GitHubAPI */,
+			);
 			productName = Search;
 			productReference = AA1C29372444366E0089EE2F /* Search.framework */;
 			productType = "com.apple.product-type.framework";
@@ -206,6 +211,9 @@
 				Base,
 			);
 			mainGroup = AA1C292D2444366E0089EE2F;
+			packageReferences = (
+				AA4B1BB42446733300F15E3A /* XCRemoteSwiftPackageReference "github-api-swift" */,
+			);
 			productRefGroup = AA1C29382444366E0089EE2F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -500,6 +508,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA4B1BB42446733300F15E3A /* XCRemoteSwiftPackageReference "github-api-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:madhikarma/github-api-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA4B1BB52446733300F15E3A /* GitHubAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA4B1BB42446733300F15E3A /* XCRemoteSwiftPackageReference "github-api-swift" */;
+			productName = GitHubAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AA1C292E2444366E0089EE2F /* Project object */;
 }

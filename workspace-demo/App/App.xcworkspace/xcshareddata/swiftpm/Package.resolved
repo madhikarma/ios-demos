@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "GitHubAPI",
+        "repositoryURL": "git@github.com:madhikarma/github-api-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "df9996930641b2d8548f97e44b3a5412bb09a888",
+          "version": "0.2.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
