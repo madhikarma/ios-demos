@@ -51,18 +51,16 @@ public final class SearchViewController: UIViewController {
 
         searchService.getSearchResults("swift")
             .sink(
-                receiveCompletion: { completion in
-                    switch completion {
+                receiveCompletion: { status in
+                    switch status {
+                    case .failure(let error):
+                      print(error.localizedDescription)
                     case .finished:
-                        print("finished")
-                        self.showAlert(title: "Finished", message: "")
-                    case let .failure(error):
-                        print("received the error: ", error)
-                        self.showAlert(title: "Error", message: error.localizedDescription)
+                      break
                     }
                 }, receiveValue: { someValue in
                     print(".sink() received \(someValue)")
-                    self.showAlert(title: "receiveValue", message: ".sink() received \(someValue)")
+                    self.showAlert(title: "Received value", message: "\(someValue)")
                 }
             )
             .store(in: &cancellableSet)
@@ -77,6 +75,7 @@ public final class SearchViewController: UIViewController {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
             alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }
