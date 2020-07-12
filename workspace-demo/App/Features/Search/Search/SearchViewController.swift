@@ -53,10 +53,10 @@ public final class SearchViewController: UIViewController {
             .sink(
                 receiveCompletion: { status in
                     switch status {
-                    case .failure(let error):
-                      print(error.localizedDescription)
+                    case let .failure(error):
+                        print(error.localizedDescription)
                     case .finished:
-                      break
+                        break
                     }
                 }, receiveValue: { someValue in
                     print(".sink() received \(someValue)")
