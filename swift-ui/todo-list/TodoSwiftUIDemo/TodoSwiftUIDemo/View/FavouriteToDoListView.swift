@@ -9,14 +9,17 @@
 import SwiftUI
 
 struct FavouriteToDoListView: View {
-    // TODO: (SM) share this state
-    @State var items: [ToDo] = []
+    @EnvironmentObject var store: ToDoStore
 
     var body: some View {
         NavigationView {
-            List(items) { item in
-                NavigationLink(destination: ToDoDetailView(item: item)) {
-                    Text(item.title)
+            List {
+                ForEach(store.items) { item in
+                    if item.isFavourite {
+                        NavigationLink(destination: ToDoDetailView(item: item)) {
+                            Text(item.description)
+                        }
+                    }
                 }
             }
             .navigationBarTitle(

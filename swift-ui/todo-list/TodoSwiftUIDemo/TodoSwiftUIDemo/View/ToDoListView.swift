@@ -7,16 +7,15 @@
 //
 
 import SwiftUI
-
+    
 struct ToDoListView: View {
-    // TODO: (SM) share this state
-    @State var items: [ToDo] = []
+    @EnvironmentObject var store: ToDoStore
 
     var body: some View {
         NavigationView {
-            List(items) { item in
+            List(store.items) { item in
                 NavigationLink(destination: ToDoDetailView(item: item)) {
-                    Text(item.title)
+                    Text(item.description)
                 }
             }
             .navigationBarTitle(
@@ -24,16 +23,18 @@ struct ToDoListView: View {
             ).navigationBarItems(trailing:
                 Button("Add", action: {
                     print("do it")
-                    let todo = ToDo(id: self.items.count + 1, title: "something")
-                    self.items.append(todo)
+                    let id = self.store.items.count + 1
+                    let shouldFavourite = (id%2==0) ? true : false
+                    let todo = ToDo(id: id, title: "something", isFavourite: shouldFavourite)
+                    self.store.items.append(todo)
                 })
             )
         }
     }
 }
-
-struct ToDoListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ToDoListView()
-    }
-}
+//
+//struct ToDoListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ToDoListView(store: ToDoStore())
+//    }
+//}

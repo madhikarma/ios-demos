@@ -12,13 +12,13 @@ struct ToDoDetailView: View {
     @State var item: ToDo
 
     var body: some View {
-        Text(item.title)
+        Text(item.description)
             .navigationBarTitle("Detail")
     }
 }
 
 struct ToDoDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ToDoDetailView(item: ToDo(id: 0, title: "preview"))
+        ToDoDetailView(item: ToDo(id: 0, title: "preview", isFavourite: true))
     }
 }

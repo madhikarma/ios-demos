@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct ToDo: Identifiable {
+struct ToDo: Identifiable, CustomStringConvertible {
     let id: Int
     let title: String
+    let isFavourite: Bool
+    
+    var description: String {
+        return "\(id) \(title) - \(String(isFavourite))"
+    }
 }

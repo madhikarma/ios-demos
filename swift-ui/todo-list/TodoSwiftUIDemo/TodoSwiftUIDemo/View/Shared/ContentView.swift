@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    private var store = ToDoStore()
+    
     var body: some View {
         TabView {
             ToDoListView().tabItem {
@@ -19,7 +21,7 @@ struct ContentView: View {
                 Image(systemName: "heart")
                 Text("Favourites")
             }.tag(1)
-        }
+        }.environmentObject(store)
     }
 }
 
