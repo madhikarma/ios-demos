@@ -84,6 +84,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AAAA5AAA24BA8CF300A64CBD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AAAA5AAC24BA8D0D00A64CBD /* Shared */,
+				AAB1988024BA840F001910B4 /* ToDoListView.swift */,
+				AAB198AE24BA880C001910B4 /* ToDoDetailView.swift */,
+				AAAA5AA824BA8C3200A64CBD /* FavouriteToDoListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AAAA5AAB24BA8CFD00A64CBD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AAAA5AA224BA8A5900A64CBD /* ToDo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AAAA5AAC24BA8D0D00A64CBD /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				AAAA5AA624BA8AA400A64CBD /* ContentView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		AAB1987024BA840F001910B4 = {
 			isa = PBXGroup;
 			children = (
@@ -107,17 +134,14 @@
 		AAB1987B24BA840F001910B4 /* TodoSwiftUIDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AAAA5AAB24BA8CFD00A64CBD /* Model */,
+				AAAA5AAA24BA8CF300A64CBD /* View */,
 				AAB1987C24BA840F001910B4 /* AppDelegate.swift */,
 				AAB1987E24BA840F001910B4 /* SceneDelegate.swift */,
 				AAB1988224BA8411001910B4 /* Assets.xcassets */,
 				AAB1988724BA8411001910B4 /* LaunchScreen.storyboard */,
 				AAB1988A24BA8411001910B4 /* Info.plist */,
 				AAB1988424BA8411001910B4 /* Preview Content */,
-				AAB1988024BA840F001910B4 /* ToDoListView.swift */,
-				AAB198AE24BA880C001910B4 /* ToDoDetailView.swift */,
-				AAAA5AA224BA8A5900A64CBD /* ToDo.swift */,
-				AAAA5AA624BA8AA400A64CBD /* ContentView.swift */,
-				AAAA5AA824BA8C3200A64CBD /* FavouriteToDoListView.swift */,
 			);
 			path = TodoSwiftUIDemo;
 			sourceTree = "<group>";
