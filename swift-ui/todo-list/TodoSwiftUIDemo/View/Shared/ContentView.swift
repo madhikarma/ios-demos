@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     private var store = ToDoStore()
-    
+
     var body: some View {
         TabView {
             ToDoListView().tabItem {

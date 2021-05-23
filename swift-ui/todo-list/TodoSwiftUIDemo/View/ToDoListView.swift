@@ -7,15 +7,48 @@
 //
 
 import SwiftUI
-    
-struct ToDoListView: View {
-    @EnvironmentObject var store: ToDoStore
 
+enum ToDoListViewState {
+    case list
+    case grid
+}
+
+struct ToDoListView: View {
+    private var columns: [GridItem] = [
+        GridItem(.fixed(100), spacing: 16),
+        GridItem(.fixed(100), spacing: 16),
+    ]
+
+    @EnvironmentObject var store: ToDoStore
+    @State var state: ToDoListViewState = .list
     var body: some View {
         NavigationView {
-            List(store.items) { item in
-                NavigationLink(destination: ToDoDetailView(item: item)) {
-                    Text(item.description)
+            VStack {
+                Button("Grid / List") {
+                    print(" do it ")
+                    if state == .list {
+                        state = .grid
+                    } else {
+                        state = .list
+                    }
+                }
+                switch state {
+                case .list:
+                    List(store.items) { item in
+                        NavigationLink(destination: ToDoDetailView(item: item)) {
+                            Text(item.description)
+                        }
+                    }
+                case .grid:
+                    LazyVGrid(columns: columns,
+                              alignment: .center,
+                              spacing: 16) {
+                        ForEach(store.items) { item in
+                            NavigationLink(destination: ToDoDetailView(item: item)) {
+                                Text(item.description)
+                            }
+                        }
+                    }.border(Color.gray)
                 }
             }
             .navigationBarTitle(
@@ -24,7 +57,7 @@ struct ToDoListView: View {
                 Button("Add", action: {
                     print("do it")
                     let id = self.store.items.count + 1
-                    let shouldFavourite = (id%2==0) ? true : false
+                    let shouldFavourite = (id % 2 == 0) ? true : false
                     let todo = ToDo(id: id, title: "something", isFavourite: shouldFavourite)
                     self.store.items.append(todo)
                 })
@@ -32,9 +65,9 @@ struct ToDoListView: View {
         }
     }
 }
-//
-//struct ToDoListView_Previews: PreviewProvider {
+
+// struct ToDoListView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        ToDoListView(store: ToDoStore())
 //    }
-//}
+// }
